@@ -1,0 +1,20 @@
+title: T2W Elite Blog | Training, Nutrition & Recruiting Tips
+description: Coach-led articles on speed, strength, vertical jump, basketball skills, athlete nutrition, recovery, and recruiting for athletes and parents in the Tulsa area.
+path: blog/
+---
+<section class="page-hero"><div class="wrap">
+<span class="eyebrow">T2W Elite Blog</span><h1>Train Smarter.</h1>
+<p class="lead">Practical, coach-led guidance for athletes and parents on performance training, basketball skills, nutrition, recovery, and recruiting.</p>
+</div></section>
+<section><div class="wrap">
+{{blog_grid}}
+<p class="muted" style="margin-top:30px">Coaching resources live in the <a href="{{root}}coaches-corner/">Coaches Corner</a>.</p>
+</div></section>
+{{cta:jumpkit}}
+<script>
+document.getElementById('filters').addEventListener('click',function(e){
+ var c=e.target.getAttribute('data-c'); if(!c) return;
+ this.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b===e.target)});
+ document.querySelectorAll('#posts .post-card').forEach(function(p){p.style.display=(c==='all'||p.getAttribute('data-c')===c)?'':'none'});
+});
+</script>
