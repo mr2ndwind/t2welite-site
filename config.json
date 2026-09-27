@@ -4,12 +4,11 @@
   "form_host": "https://api.leadconnectorhq.com",
   "forms": {
     "evaluation": "GA210AHxhVOQut2gIzIX",
-    "jumpkit": "",
+    "jumpkit": "ntr2T3bdb2fDQzhe0eWn",
     "practice_template": "",
-    "coach_application": "",
-    "summer_offer": ""
+    "coach_application": ""
   },
-  "form_heights": {"evaluation": 1700, "jumpkit": 700, "practice_template": 1000, "coach_application": 1100, "summer_offer": 1400},
+  "form_heights": {"evaluation": 1700, "jumpkit": 620, "practice_template": 1000, "coach_application": 1100},
   "booking_basketball": "https://links.team2ndwind.com/widget/booking/EuGPA1mufUJXLeTfpvK8",
   "booking_spa": "https://links.team2ndwind.com/widget/booking/C33QpnCJKuoxB4YDmpEb",
   "portal_url": "https://t2wfit.com",
