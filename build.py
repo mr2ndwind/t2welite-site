@@ -41,11 +41,13 @@ def form_embed(key, height=None):
                 '<a class="btn" href="{{root}}evaluation/">Start Free Evaluation</a></div>')
     h = height or CFG["form_heights"].get(key, 900)
     src = f'{CFG["form_host"]}/widget/form/{fid}'
-    return (f'<div class="form-box"><iframe src="{src}" id="inline-{fid}" data-layout="{{\'id\':\'INLINE\'}}" '
+    return (f'<div class="form-box" style="min-height:{h}px"><iframe src="{src}" id="inline-{fid}" '
+            f'data-layout="{{\'id\':\'INLINE\'}}" '
             f'data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" '
             f'data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" '
             f'data-form-name="{esc(key)}" data-height="{h}" data-layout-iframe-id="inline-{fid}" '
-            f'data-form-id="{fid}" title="{esc(key)} form" style="min-height:{h}px"></iframe></div>')
+            f'data-form-id="{fid}" data-cookie-consent="false" title="{esc(key)} form" '
+            f'style="width:100%;height:100%;min-height:{h}px;border:none;border-radius:8px"></iframe></div>')
 
 
 def md_to_html(md):
@@ -169,7 +171,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
 b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}});
 </script>
-<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
+<script src="{CFG['form_host']}/js/form_embed.js"></script>
 </body></html>
 """
     page = page.replace("{{root}}", root)
