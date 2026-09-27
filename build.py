@@ -42,7 +42,10 @@ def form_embed(key, height=None):
     h = height or CFG["form_heights"].get(key, 900)
     src = f'{CFG["form_host"]}/widget/form/{fid}'
     return (f'<div class="form-box"><iframe src="{src}" id="inline-{fid}" data-layout="{{\'id\':\'INLINE\'}}" '
-            f'data-form-id="{fid}" title="{esc(key)} form" style="min-height:{h}px" loading="lazy"></iframe></div>')
+            f'data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" '
+            f'data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" '
+            f'data-form-name="{esc(key)}" data-height="{h}" data-layout-iframe-id="inline-{fid}" '
+            f'data-form-id="{fid}" title="{esc(key)} form" style="min-height:{h}px"></iframe></div>')
 
 
 def md_to_html(md):
