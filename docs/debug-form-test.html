@@ -1,0 +1,17 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>debug</title></head>
+<body>
+<div id="log" style="font-family:monospace;white-space:pre-wrap;padding:20px;"></div>
+<div class="form-box"><iframe src="https://api.leadconnectorhq.com/widget/form/GA210AHxhVOQut2gIzIX" id="inline-GA210AHxhVOQut2gIzIX" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="evaluation" data-height="1700" data-layout-iframe-id="inline-GA210AHxhVOQut2gIzIX" data-form-id="GA210AHxhVOQut2gIzIX" title="evaluation form" style="min-height:1700px"></iframe></div>
+<script>
+var logEl = document.getElementById('log');
+function log(s){ logEl.textContent += s + "\n"; }
+window.addEventListener('message', function(e){
+  log('MSG origin=' + e.origin + ' data=' + (typeof e.data === 'string' ? e.data.slice(0,300) : JSON.stringify(e.data).slice(0,300)));
+});
+log('listener attached at ' + Date.now());
+document.querySelector('iframe').addEventListener('load', function(){ log('iframe load event fired at ' + Date.now()); });
+</script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script>log('form_embed.js sync-finished at ' + Date.now());</script>
+</body></html>
