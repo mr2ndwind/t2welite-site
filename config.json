@@ -5,10 +5,10 @@
   "forms": {
     "evaluation": "GA210AHxhVOQut2gIzIX",
     "jumpkit": "ntr2T3bdb2fDQzhe0eWn",
-    "practice_template": "",
-    "coach_application": ""
+    "practice_template": "WuwBX7g1DCgKKdMCAIt3",
+    "coach_application": "XzYWKm2PxfeMraMofzW5"
   },
-  "form_heights": {"evaluation": 1700, "jumpkit": 620, "practice_template": 1000, "coach_application": 1100},
+  "form_heights": {"evaluation": 1700, "jumpkit": 620, "practice_template": 550, "coach_application": 950},
   "booking_basketball": "https://links.team2ndwind.com/widget/booking/EuGPA1mufUJXLeTfpvK8",
   "booking_spa": "https://links.team2ndwind.com/widget/booking/C33QpnCJKuoxB4YDmpEb",
   "portal_url": "https://t2wfit.com",
