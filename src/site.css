@@ -165,3 +165,15 @@ footer a{color:var(--light);text-decoration:none}
 footer a:hover{color:var(--red)}
 .legal{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--gray);font-size:.82rem}
 .tag{font:600 .9rem var(--head);letter-spacing:.14em;color:var(--red)}
+
+/* ---- Portal (login / reset / home) ---- */
+.portal-form label{display:block;font:600 .8rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--light);margin:18px 0 8px}
+.portal-form input{width:100%;box-sizing:border-box;background:var(--black);border:1px solid var(--line);color:var(--white);border-radius:6px;padding:14px;font:inherit}
+.portal-form input:focus{outline:2px solid var(--red);outline-offset:1px}
+.portal-form .btn{width:100%;margin-top:22px}
+.portal-form[hidden],.portal-msg[hidden],[hidden].link-btn{display:none}
+.portal-msg{margin-top:16px;padding:12px 14px;border-radius:6px;border:1px solid var(--line);font-size:.95rem}
+.portal-msg.err{border-color:var(--red);color:#ffb4a8}
+.portal-msg.ok{border-color:#2f7d4f;color:#bfe8cf}
+.link-btn{display:block;background:none;border:0;color:var(--gray);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin:18px auto 0}
+.role-badge{display:inline-block;font:700 .72rem/1 var(--body);letter-spacing:.14em;color:var(--white);background:var(--red);border-radius:999px;padding:6px 12px;margin-left:10px;vertical-align:middle}

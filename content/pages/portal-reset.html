@@ -1,0 +1,24 @@
+title: Set Your Password | T2W Elite
+description: Set or reset your T2W Elite portal password.
+path: portal/reset/
+nav: portal/login/
+---
+<section class="page-hero"><div class="wrap">
+<span class="eyebrow">T2W Elite</span><h1>Set Your Password</h1>
+<p class="lead">Choose a strong password for your portal account.</p>
+</div></section>
+<section><div class="wrap" style="max-width:560px">
+<div class="card accent" id="portal-app" data-page="reset">
+<p class="muted" id="reset-wait">Checking your link...</p>
+<form class="portal-form" id="reset-form" hidden>
+<label for="new-password">New password (10+ characters)</label><input id="new-password" type="password" autocomplete="new-password" minlength="10" required>
+<label for="new-password2">Confirm new password</label><input id="new-password2" type="password" autocomplete="new-password" minlength="10" required>
+<button class="btn" type="submit">SAVE PASSWORD</button>
+</form>
+<div class="portal-msg" id="portal-msg" role="status" aria-live="polite" hidden></div>
+<a class="btn sm ghost" id="reset-back" href="{{root}}portal/login/" hidden style="margin-top:16px">Back to login</a>
+</div>
+</div></section>
+<script src="{{root}}assets/portal-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="{{root}}assets/portal.js"></script>
