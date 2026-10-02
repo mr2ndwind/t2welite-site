@@ -20,6 +20,26 @@ Tested in rolled-back transactions: parent sees only own athlete; verified recru
 guardian-approved, recruiter-visible profiles; pending recruiter and anon see nothing; no self role escalation.
 
 ## Still manual (dashboard)
-- Turn OFF "Allow new users to sign up"
-- Turn ON leaked password protection
-- Configure custom SMTP (sender address pending decision)
+- DONE (Corey, 2026-10-02): "Allow new users to sign up" is OFF; password requirements raised
+- Leaked password protection is a paid-plan (Pro) feature; not available on the Free plan
+- Custom SMTP for elite@t2welite.com: pending DNS verification at GoDaddy (see below)
+
+## Portal pages (this branch)
+- `/portal/login/` sign in + Forgot password; `/portal/reset/` set/reset password (also used by invite links);
+  `/portal/home/` role-aware, read-only home (parent, athlete, recruiter/school, staff).
+- Pages use the public publishable key in `config.json > supabase`. Data access is enforced by row-level security.
+- Portal pages are `noindex` and excluded from the sitemap.
+- supabase-js loads from jsDelivr (`@supabase/supabase-js@2`). TODO before launch: pin an exact version.
+
+## Before cutover (manual, in Supabase dashboard)
+1. Authentication > URL Configuration: set Site URL to https://t2welite.com and add redirect URLs
+   https://t2welite.com/portal/reset/ and https://t2welite.com/portal/home/.
+2. Authentication > Emails > SMTP Settings: connect the sending service for elite@t2welite.com
+   (verify the domain at the DNS host first). Customize the Reset Password and Invite templates.
+3. Create a test parent account by invite (app_metadata product=elite), add an elite_profiles row, and
+   run the end-to-end check: invite -> set password -> login -> home -> forgot password -> reset.
+
+## Tested
+Browser tests with simulated server replies (21 checks: login errors, forgot password, expired link,
+redirects, parent/pending/recruiter/no-profile views). NOT yet tested against the live Supabase project
+(sandbox cannot reach it) and NOT yet tested with real emails.

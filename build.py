@@ -114,6 +114,7 @@ def layout(title, desc, path, body, active=None, schema=None):
            + "".join(link(n, p) for n, p in training) + "</div></div>"
            + "".join(link(n, p) for n, p in [("Tryouts", "tryouts/"), ("Blog", "blog/"),
                                               ("Coaches Corner", "coaches-corner/"), ("Contact", "contact/")]))
+    robots = '<meta name="robots" content="noindex,nofollow">' if path.startswith("portal/") else ""
     ld = f'<script type="application/ld+json">{json.dumps(schema)}</script>' if schema else ""
     page = f"""<!doctype html>
 <html lang="en"><head>
@@ -125,6 +126,7 @@ def layout(title, desc, path, body, active=None, schema=None):
 <meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{canon}">
 <meta property="og:image" content="{CFG['og_image']}"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A0A0B">
+{robots}
 <link rel="icon" href="{CFG['logo']}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -191,6 +193,10 @@ def build():
         shutil.rmtree(OUT)
     (OUT / "assets").mkdir(parents=True)
     shutil.copy(ROOT / "src" / "site.css", OUT / "assets" / "site.css")
+    shutil.copy(ROOT / "src" / "portal.js", OUT / "assets" / "portal.js")
+    # Public Supabase URL + publishable key (safe to expose; row-level security protects the data).
+    (OUT / "assets" / "portal-config.js").write_text(
+        "window.T2W_SUPABASE=" + json.dumps(CFG["supabase"]) + ";\n")
     urls = []
 
     # Articles
@@ -269,7 +275,7 @@ def build():
     # 404, robots, sitemap, .nojekyll
     (OUT / "404.html").write_text((OUT / "not-found" / "index.html").read_text().replace('href="../', 'href="/'))
     shutil.rmtree(OUT / "not-found")
-    urls = [u for u in urls if "not-found" not in u]
+    urls = [u for u in urls if "not-found" not in u and "/portal/" not in u]
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
     (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                                      + "".join(f"<url><loc>{u}</loc></url>\n" for u in sorted(set(urls))) + "</urlset>\n")

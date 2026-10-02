@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Portal Login | T2W Elite</title>
-<meta name="description" content="T2W Elite athletes, parents, coaches and approved recruiters sign in here.">
-<link rel="canonical" href="https://t2welite.com/portal/login/">
-<meta property="og:type" content="website"><meta property="og:title" content="Portal Login | T2W Elite">
-<meta property="og:description" content="T2W Elite athletes, parents, coaches and approved recruiters sign in here."><meta property="og:url" content="https://t2welite.com/portal/login/">
+<title>Set Your Password | T2W Elite</title>
+<meta name="description" content="Set or reset your T2W Elite portal password.">
+<link rel="canonical" href="https://t2welite.com/portal/reset/">
+<meta property="og:type" content="website"><meta property="og:title" content="Set Your Password | T2W Elite">
+<meta property="og:description" content="Set or reset your T2W Elite portal password."><meta property="og:url" content="https://t2welite.com/portal/reset/">
 <meta property="og:image" content="https://assets.cdn.filesafe.space/KUaMUc8BxyxYui9dVFR1/media/6a4801a3e098dfac370aea38.png"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A0A0B">
 <meta name="robots" content="noindex,nofollow">
@@ -22,32 +22,19 @@
 </div></header>
 <main>
 <section class="page-hero"><div class="wrap">
-<span class="eyebrow">T2W Elite</span><h1>Portal Login</h1>
-<p class="lead">Athletes, parents, coaches, and approved recruiters and schools sign in here. Accounts are created by invitation.</p>
+<span class="eyebrow">T2W Elite</span><h1>Set Your Password</h1>
+<p class="lead">Choose a strong password for your portal account.</p>
 </div></section>
-<section><div class="wrap grid g2">
-<div class="card accent" id="portal-app" data-page="login">
-<form class="portal-form" id="login-form" novalidate>
-<h3>Sign in</h3>
-<label for="login-email">Email address</label><input id="login-email" type="email" autocomplete="username" required>
-<label for="login-password">Password</label><input id="login-password" type="password" autocomplete="current-password" required>
-<button class="btn" type="submit">LOGIN</button>
-<button class="link-btn" type="button" id="show-forgot">Forgot password?</button>
-</form>
-<form class="portal-form" id="forgot-form" hidden>
-<h3>Reset your password</h3>
-<p class="muted">Enter the email on your account and we will send a reset link.</p>
-<label for="forgot-email">Email address</label><input id="forgot-email" type="email" autocomplete="email" required>
-<button class="btn" type="submit">EMAIL ME A RESET LINK</button>
-<button class="link-btn" type="button" id="show-login">Back to sign in</button>
+<section><div class="wrap" style="max-width:560px">
+<div class="card accent" id="portal-app" data-page="reset">
+<p class="muted" id="reset-wait">Checking your link...</p>
+<form class="portal-form" id="reset-form" hidden>
+<label for="new-password">New password (10+ characters)</label><input id="new-password" type="password" autocomplete="new-password" minlength="10" required>
+<label for="new-password2">Confirm new password</label><input id="new-password2" type="password" autocomplete="new-password" minlength="10" required>
+<button class="btn" type="submit">SAVE PASSWORD</button>
 </form>
 <div class="portal-msg" id="portal-msg" role="status" aria-live="polite" hidden></div>
-</div>
-<div>
-<div class="card" style="margin-bottom:24px"><h3>New to T2W Elite?</h3><p>Start with a free athlete evaluation. Portal access is set up for you when you join.</p><a class="btn sm" href="../../evaluation/">Athlete Interest Form</a></div>
-<div class="card" style="margin-bottom:24px"><h3>Recruiters &amp; Schools</h3><p>Access is by request and every account is verified before any athlete information is visible. Reach out through our contact page.</p><a class="btn sm ghost" href="../../contact/">Request Access</a></div>
-<div class="card"><h3>Workouts &amp; Assignments</h3><p>Training programs live in the T2W Fit Training App.</p><a class="btn sm ghost" href="https://t2wfit.com" rel="noopener">Open the Training App</a>
-<p class="muted" style="margin-top:14px">Need help logging in? Call or text Coach Corey at <a href="tel:+19189183234">(918) 918-3234</a>.</p></div>
+<a class="btn sm ghost" id="reset-back" href="../../portal/login/" hidden style="margin-top:16px">Back to login</a>
 </div>
 </div></section>
 <script src="../../assets/portal-config.js"></script>
